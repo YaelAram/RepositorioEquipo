@@ -32,8 +32,23 @@ public class Calculadora {
     }
 
 
-    public void suma(){
+    public void sumar(){
         float adicion = operando1 + operando2;
         System.out.println("El resultado de la suma es: "+adicion);
+    }
+
+    public void restar(){
+        float sustraccion = operando1 - operando2;
+        System.out.println("El resultado de la resta es: "+sustraccion);
+    }
+
+    public void multiplicar(){
+        float multiplicacion = operando1 * operando2;
+        System.out.println("El resultado de la multiplicacion es: "+multiplicacion);
+    }
+
+    public void dividir(){
+        float division = operando1 / operando2;
+        System.out.println("El resultado de la division es: "+division);
     }
 }
