@@ -3,10 +3,9 @@ package helpers;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.HashMap;
-import java.util.Objects;
 
 public class Entrada {
-  private final String ruta;
+  private String ruta;
   private String datos = null;
   private int caracteres = 0;
   private final HashMap<Character, Integer> caracteresDif = new HashMap<>();
@@ -24,11 +23,15 @@ public class Entrada {
     salidas.put("\r\n", "\\r\\n SALTO DE LINEA (WINDOWS)");
   }
 
-  public int getCaracteres() {
-    return this.caracteres;
+  public String getDatos() {
+    return datos;
   }
 
-  public void leerTodo(){
+  public String obtenerNumeroCaracteres() {
+    return "Total de caracteres: " + this.caracteres;
+  }
+
+  public Entrada leerTodo(){
     try{
       FileInputStream fileInputStream = new FileInputStream(this.ruta);
       this.caracteres = fileInputStream.available();
@@ -38,15 +41,23 @@ public class Entrada {
     catch(IOException error){
       System.out.println(error.getMessage());
     }
+
+    return this;
   }
 
-  public Entrada contarCaracteres(){
+  public void setRuta(String ruta) {
+    this.ruta = ruta;
+  }
+
+  public String contarCaracteres(){
     try{
       FileInputStream fileInputStream = new FileInputStream(this.ruta);
       char caracter;
+      this.datos = "";
 
       while(fileInputStream.available() != 0){
         caracter = (char) fileInputStream.read();
+        this.datos = this.datos.concat(String.valueOf(caracter));
         if(caracteresDif.containsKey(caracter))
           caracteresDif.replace(caracter, caracteresDif.get(caracter) + 1);
         else caracteresDif.put(caracter, 1);
@@ -58,25 +69,31 @@ public class Entrada {
       System.out.println(error.getMessage());
     }
 
-    return this;
+    return this.crearMensajeCaracteresDiferentes();
   }
 
   private String crearSalida(String caracter){
     return this.salidas.getOrDefault(caracter, caracter);
   }
 
-  public void mostrarCaracteresDiferentes(){
+  private String crearMensajeCaracteresDiferentes(){
+    StringBuilder mensaje = new StringBuilder();
     this.caracteresDif.forEach((clave, valor) -> {
       String veces = (valor > 1) ? " veces" : " vez";
-      System.out.println("Caracter " + crearSalida(String.valueOf(clave)) + " encontrado " + valor + veces);
+      mensaje.append("Caracter ").append(crearSalida(String.valueOf(clave)))
+              .append(" encontrado ").append(valor).append(veces).append("\n");
     });
+
+    return mensaje.toString();
   }
 
-  public void contador(String separador, String nombreSingular, String nombrePlural, boolean eliminar){
+  public String contador(String separador, String nombreSingular, String nombrePlural, boolean eliminar){
+    this.leerTodo();
     String datosCopia = this.datos;
     if(eliminar) datosCopia = datosCopia.replaceAll("(" + separador + "){2,}", separador);
     int numeroPalabras = datosCopia.split(separador).length;
-    System.out.println("Separador " + crearSalida(separador) +
-            "\nTotal de palabras: " + numeroPalabras + " " + ((numeroPalabras != 1) ? nombrePlural : nombreSingular) );
+
+    return "Separador " + crearSalida(separador) +
+            "\nTotal de palabras: " + numeroPalabras + " " + ((numeroPalabras != 1) ? nombrePlural : nombreSingular);
   }
 }
