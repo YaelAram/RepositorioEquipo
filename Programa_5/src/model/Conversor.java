@@ -24,7 +24,7 @@ public class Conversor {
     conversion.put("M", 1000);
   }
 
-  public int convertir(String numero){
+  public String convertir(String numero){
     int acumulador = 0;
     String[] segmentos = numero.split("");
 
@@ -38,8 +38,6 @@ public class Conversor {
       else acumulador += this.conversion.getOrDefault(segmentos[i], 0);
     }
 
-    System.out.println("Valor encontrado: " + numero + " -> " + formato.format(acumulador));
-
-    return acumulador;
+    return "Valor encontrado: " + numero + " -> " + formato.format(acumulador);
   }
 }
