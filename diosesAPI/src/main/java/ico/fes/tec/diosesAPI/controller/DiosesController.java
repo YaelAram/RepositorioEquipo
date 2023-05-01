@@ -4,43 +4,45 @@ import ico.fes.tec.diosesAPI.model.Dios;
 import ico.fes.tec.diosesAPI.model.Roster;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.HashMap;
+import java.util.ArrayList;
 
 @RestController
-
 public class DiosesController {
-    Roster roster;
+    private final Roster roster = new Roster();
 
-    public DiosesController() {
-        roster = new Roster();
-    }
-
-    @GetMapping("/dioses")
-    public ResponseEntity<HashMap<Integer, Dios>> getDioses() {
-        return new ResponseEntity<>(roster.getDb(), HttpStatus.OK);
+    @GetMapping("/dioses/")
+    @CrossOrigin(origins = "https://smite-dioses-api.netlify.app/")
+    public ResponseEntity<ArrayList<Dios>> getDioses() {
+        return new ResponseEntity<>(this.roster.obtenerDioses(), HttpStatus.OK);
     }
 
     @GetMapping("/dioses/{id}")
-    public ResponseEntity<Dios> getDiosByID(@PathVariable(required = true, name = "id")Integer id) {
-        return new ResponseEntity<>(roster.RegresarID(id), HttpStatus.OK);
+    @CrossOrigin(origins = "https://smite-dioses-api.netlify.app/")
+    public ResponseEntity<Dios> getDiosByID(@PathVariable(name = "id") String id) {
+        Dios dios = this.roster.obtenerDiosPorId(id);
+        return new ResponseEntity<>(this.roster.obtenerDiosPorId(id), (dios.getId() == null) ? HttpStatus.BAD_REQUEST : HttpStatus.OK);
     }
 
-    @PostMapping("/dioses/agregar")
-    public ResponseEntity<Dios> AgregarDios(@RequestBody(required = true) Dios ND){
-        return new ResponseEntity<>(roster.AgregarDios(ND),HttpStatus.OK);
+    @PostMapping("/dioses/")
+    @CrossOrigin(origins = "https://smite-dioses-api.netlify.app/")
+    public ResponseEntity<Dios> AgregarDios(@RequestBody() Dios diosNuevo){
+        Dios dios = this.roster.crearDios(diosNuevo);
+        return new ResponseEntity<>(dios, (dios.getId() == null) ? HttpStatus.BAD_REQUEST : HttpStatus.CREATED);
     }
 
-    @PatchMapping("/dioses/reemplazar/{id}")
-    public ResponseEntity<Dios> ModificarDios(@PathVariable(required = true, name = "id") Integer id, @RequestBody(required = true) Dios ND){
-        return new ResponseEntity<>(roster.ModificarDios(id, ND),HttpStatus.OK);
+    @PatchMapping("/dioses/{id}")
+    @CrossOrigin(origins = "https://smite-dioses-api.netlify.app/")
+    public ResponseEntity<Dios> ModificarDios(@PathVariable(name = "id") String id, @RequestBody() Dios diosActualizado){
+        Dios dios = this.roster.actualizarDios(id, diosActualizado);
+        return new ResponseEntity<>(dios, (dios.getId() == null) ? HttpStatus.BAD_REQUEST : HttpStatus.OK);
     }
 
-    @DeleteMapping("/dioses/eliminar")
-    public ResponseEntity<Dios> EliminarDios(@RequestBody(required = true)Dios dios){
-        return new ResponseEntity<>(roster.EliminarDios(dios),HttpStatus.OK);
+    @DeleteMapping("/dioses/{id}")
+    @CrossOrigin(origins = "https://smite-dioses-api.netlify.app/")
+    public ResponseEntity<Dios> EliminarDios(@PathVariable(name = "id") String id){
+        Dios dios = this.roster.eliminarDios(id);
+        return new ResponseEntity<>(dios, (dios.getId() == null) ? HttpStatus.BAD_REQUEST : HttpStatus.OK);
     }
-
 }
