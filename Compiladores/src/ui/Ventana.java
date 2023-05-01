@@ -7,8 +7,11 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
-
+/*
+Se hará la clase ventana con los elementos del constructor para administrar aquí sus eventos
+ */
 public class Ventana extends JFrame implements ActionListener {
+  // Se declaran los elementos
   private final Constructor constructor = new Constructor(this);
   private JComboBox<String> programas, configuraciones;
   private JButton procesar, cargar;
@@ -16,12 +19,15 @@ public class Ventana extends JFrame implements ActionListener {
   private JTextField delimitador;
   private final Entrada archivo = new Entrada("test.txt");
 
+  //Se coloca un título
   public Ventana(){
     constructor.frameEstilo("Programas Compiladores", WindowConstants.EXIT_ON_CLOSE, new int[]{0, 0, 1100, 800});
     construirUI();
     this.setVisible(true);
   }
 
+
+  //Se delimitan los campos de acción en la interfaz
   private void construirUI(){
     constructor.labelEstilo(new int[]{20, 20, 200, 20}, "Selecciona un programa:");
     programas = constructor.comboBoxEstilo(new int[]{20, 50, 200, 30}, new String[]{"Programa 1", "Programa 2", "Programa 3", "Programa 4"});
@@ -41,10 +47,12 @@ public class Ventana extends JFrame implements ActionListener {
     codigo = constructor.textAreaEstilo(new int[]{20, 100, 1050, 650});
   }
 
+  //Se muestra un mensaje de éxito
   public void mostrarMensaje(String mensaje){
     JOptionPane.showMessageDialog(null, mensaje, "Exito", JOptionPane.INFORMATION_MESSAGE);
   }
 
+  // Se generan los eventos de cada apartado además de la selección del archivo de texto
   @Override
   public void actionPerformed(ActionEvent evt) {
     if(evt.getSource() == this.procesar){
@@ -54,6 +62,7 @@ public class Ventana extends JFrame implements ActionListener {
       String mensaje = "";
       boolean repetidos = (configuracion.equals("Mantener Repetidos")) ? Entrada.MANTENER_REPETIDOS : Entrada.ELIMINAR_REPETIDOS;
 
+      //Cambia a cada programa
       switch(programa){
         case "Programa 1" -> mensaje = this.archivo.leerTodo().obtenerNumeroCaracteres();
         case "Programa 2" -> mensaje = this.archivo.contarCaracteres();
@@ -61,6 +70,7 @@ public class Ventana extends JFrame implements ActionListener {
         case "Programa 4" -> mensaje = this.archivo.contador(delimitadorStr, "linea/parrafo", "lineas/parrafos", repetidos);
       }
 
+      //Se cargan los datos
       this.codigo.setText(this.archivo.getDatos());
       this.mostrarMensaje(mensaje);
     }
