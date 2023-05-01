@@ -1,0 +1,197 @@
+body{
+  font-family: 'Roboto', sans-serif;
+}
+
+h1, h2{
+  text-align: center;
+  margin-block: 1rem;
+}
+
+/* NavBar Styles */
+h1, label, input, .navbar-li{
+  line-height: 1.5;
+  word-spacing: 1px;
+  letter-spacing: 1px;
+}
+
+.active{
+  color: white;
+  font-weight: bold;
+}
+
+nav{
+  background-color: black;
+  padding: 1.2rem 1.5rem;
+}
+
+.navbar-ul{
+  font-size: large;
+  margin-block: 0;
+  text-align: end;
+  padding-inline-start: 0;
+}
+
+.navbar-li{
+  display: inline;
+  list-style: none;
+  margin-left: 1.5rem;
+}
+
+a{
+  text-decoration: none;
+  color: cornsilk;
+}
+
+/* Page Style */
+section{
+  padding: 0.25rem 3rem 2rem;
+}
+
+.hero-list{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+}
+
+.hero-item{
+  padding: 0.25rem 1.5rem 1rem;
+  border-radius: 0.75rem;
+  border: 0.125rem solid black;
+}
+
+.image-info{
+  display: grid;
+  grid-template-columns: 2fr 2fr;
+  gap: 0.25rem;
+}
+
+.image-info-profile{
+  margin-top: 3rem;
+  display: grid;
+  grid-template-columns: 2fr 2fr 2fr 2fr;
+  gap: 0.25rem;
+}
+
+.hero-profile-delete{
+  width: 100%;
+}
+
+img{
+  grid-row: 1;
+  grid-column: 1;
+  width: 100%;
+  border-radius: 0.75rem;
+}
+
+.hero-img-profile{
+  grid-row: 1;
+  grid-column: 2;
+  width: 100%;
+  border-radius: 0.75rem;
+}
+
+.hero-info{
+  grid-row: 1;
+  grid-column: 2;
+  padding-left: 1.5rem;
+}
+
+.hero-info-profile{
+  grid-row: 1;
+  grid-column: 3;
+  padding-left: 1.5rem;
+  grid-template-columns: 1fr;
+  gap: 0.25rem;
+}
+
+.label-hero-info{
+  font-weight: bolder;
+}
+
+.about-hero-info{
+  font-weight: bold;
+  color: black;
+  font-style: italic;
+}
+
+.primary-button{
+  font-size: large;
+  padding: 0.5rem 3rem;
+  background-color: white;
+  color: black;
+  outline: none;
+}
+
+.goditem-more{
+  color: black;
+  font-weight: bold;
+  font-style: italic;
+}
+
+.goditem-more:hover{
+  cursor: pointer;
+}
+
+.primary-button, .input-text{
+  border: 0.125rem solid black;
+  border-radius: 0.75rem;
+}
+
+.primary-button:hover{
+  background-color: black;
+  color: white;
+}
+
+/* Form */
+.section-create, .form-create{
+  display: grid;
+  gap: 0.5rem;
+}
+
+.section-create{
+  grid-template-columns: repeat(3, 1fr);
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+.h1-create, .form-create{
+  grid-column: 2;
+}
+
+.h1-create{
+  grid-row: 1;
+}
+
+.form-create{
+  grid-row: 2;
+  grid-template-columns: 1fr;
+}
+
+.input-create, .btn-create{
+  border-radius: 0.3rem;
+  outline: none;
+  border: 0.125rem solid black;
+}
+
+.input-create{
+  padding: 0.25rem 0.35rem;
+}
+
+.btn-create{
+  margin-top: 1rem;
+  padding: 0.5rem 0;
+  color: white;
+  background-color: black;
+  font-size: larger;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.btn-create:hover{
+  color: black;
+  background-color: white;
+}
