@@ -67,7 +67,7 @@ public class Ventana extends JFrame implements ActionListener {
         case "Programa 1" -> mensaje = this.archivo.leerTodo().obtenerNumeroCaracteres();
         case "Programa 2" -> mensaje = this.archivo.contarCaracteres();
         case "Programa 3" -> mensaje = this.archivo.contador(delimitadorStr, "palabra", "palabras", repetidos);
-        case "Programa 4" -> mensaje = this.archivo.contador(System.lineSeparator(), "linea/parrafo", "lineas/parrafos", repetidos);
+        case "Programa 4" -> mensaje = this.archivo.contador(delimitadorStr, "linea/parrafo", "lineas/parrafos", repetidos);
       }
 
       //Se cargan los datos

@@ -29,6 +29,9 @@ public class Entrada {
     return datos;
   }
 
+
+
+
   //Se indica como presentar el total de caracteres
   public String obtenerNumeroCaracteres() {
     return "Total de caracteres: " + this.caracteres;
@@ -53,6 +56,9 @@ public class Entrada {
   public void setRuta(String ruta) {
     this.ruta = ruta;
   }
+
+
+
 
   //Método de contar caracteres
   public String contarCaracteres(){
@@ -90,6 +96,7 @@ public class Entrada {
     return this.salidas.getOrDefault(caracter, caracter);
   }
 
+
   //Se genera la salida del resultado del conteo
   private String crearMensajeCaracteresDiferentes(){
     StringBuilder mensaje = new StringBuilder();
@@ -101,6 +108,9 @@ public class Entrada {
 
     return mensaje.toString();
   }
+
+
+
 
   //Elementos para el separador
   public String contador(String separador, String nombreSingular, String nombrePlural, boolean eliminar){

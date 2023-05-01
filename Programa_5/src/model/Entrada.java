@@ -50,7 +50,7 @@ public class Entrada {
           if(fileInputStream.available() == 0) mensaje.append(conversor.convertir(aux)).append("\n");
         }
         else {
-          //Si llego al ultimo caracter en una busqueda anterior, convierte lo ultimo que almacenó
+          //Si llego al ultimo caracter en una búsqueda anterior, convierte lo ultimo que almacenó
           mensaje.append(conversor.convertir(acumulador)).append("\n");
           if(fileInputStream.available() == 0) mensaje.append(conversor.convertir(caracter)).append("\n");
           acumulador = caracter;
