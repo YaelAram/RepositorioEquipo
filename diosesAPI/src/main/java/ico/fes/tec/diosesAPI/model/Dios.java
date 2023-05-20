@@ -1,5 +1,6 @@
 package ico.fes.tec.diosesAPI.model;
 
+import ico.fes.tec.diosesAPI.helpers.Validator;
 import lombok.*;
 
 import java.util.UUID;
@@ -26,31 +27,23 @@ public class Dios {
         this.rol = "Sin rol";
     }
 
-    private static String validarImg(String img, String defaultImg){
-        return (img.matches("[a-zA-Z0-9-_/:.]+.(png|jpg|jpeg)")) ? img : defaultImg;
-    }
-
-    private static String validarTexto(String name, String defaultName){
-        return (name.matches("[a-zA-ZñÑ ]+")) ? name : defaultName;
-    }
-
     public static Dios crearDios(Dios dios){
         return new Dios(
             UUID.randomUUID(),
-            validarImg(dios.getImg(), "Sin imagen"),
-            validarTexto(dios.getNombre(), "Sin nombre"),
-            validarTexto(dios.getEpiteto(), "Sin epiteto"),
-            validarTexto(dios.getPanteon(), "Sin panteon"),
-            validarTexto(dios.getRol(), "Sin rol"),
+            Validator.validarImg(dios.getImg(), "Sin imagen"),
+            Validator.validarTexto(dios.getNombre(), "Sin nombre"),
+            Validator.validarTexto(dios.getEpiteto(), "Sin epiteto"),
+            Validator.validarTexto(dios.getPanteon(), "Sin panteon"),
+            Validator.validarTexto(dios.getRol(), "Sin rol"),
             true
         );
     }
 
     public void actualizarDios(Dios dios){
-        this.img = validarImg(dios.getImg(), this.img);
-        this.nombre = validarTexto(dios.getNombre(), this.nombre);
-        this.epiteto = validarTexto(dios.getEpiteto(), this.epiteto);
-        this.panteon = validarTexto(dios.getPanteon(), this.panteon);
-        this.rol = validarTexto(dios.getRol(), this.rol);
+        this.img = Validator.validarImg(dios.getImg(), this.img);
+        this.nombre = Validator.validarTexto(dios.getNombre(), this.nombre);
+        this.epiteto = Validator.validarTexto(dios.getEpiteto(), this.epiteto);
+        this.panteon = Validator.validarTexto(dios.getPanteon(), this.panteon);
+        this.rol = Validator.validarTexto(dios.getRol(), this.rol);
     }
 }
