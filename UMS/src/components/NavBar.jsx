@@ -1,18 +1,20 @@
-import { NavLink } from "react-router-dom";
+import { useContext } from "react";
 
-const activeClass = ( { isActive } ) => ( isActive ) ? "active" : undefined;
+import { UserContext } from "../context/UserContext";
+import { AdminOptions } from "./AdminOptions";
+import { PlayerOptions } from "./PlayerOptions";
+import { GuestOptions } from "./GuestOptions";
 
 export function NavBar() {
+  const { user, rol, isLogged } = useContext( UserContext );
 
   return (
     <nav>
+      <p className="user-name">{ user.nombre?.toUpperCase() }</p>
       <ul className="navbar-ul">
-        <li className="navbar-li">
-          <NavLink to="/" className={ activeClass }>Ver Dioses</NavLink>
-        </li>
-        <li className="navbar-li">
-          <NavLink to="/crear" className={ activeClass }>Crear Dios</NavLink>
-        </li>
+        {
+          ( !isLogged ) ? <GuestOptions /> : ( ( rol === 'ADMIN' ) ? <AdminOptions /> : <PlayerOptions /> )
+        }
       </ul>
     </nav>
   );

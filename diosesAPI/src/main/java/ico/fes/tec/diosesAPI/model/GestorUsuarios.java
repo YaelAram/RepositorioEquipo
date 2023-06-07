@@ -7,14 +7,22 @@ public class GestorUsuarios {
   private final HashMap<String, Usuario> usuarios = new HashMap<>();
 
   private GestorUsuarios(){
-    Usuario aux = new Usuario(
+    Usuario admin = new Usuario(
             UUID.fromString("c1c68d68-4cc0-4879-8e20-0d4e04ab4758"),
             "Admin",
             "admin@gmail.com",
             "123456",
             Rol.ADMIN
     );
-    this.usuarios.put(aux.getId().toString(), aux);
+    Usuario player = new Usuario(
+            UUID.fromString("48a78c38-7210-486a-b873-690311f42701"),
+            "Player",
+            "player@gmail.com",
+            "123456",
+            Rol.PLAYER
+    );
+    this.usuarios.put(admin.getId().toString(), admin);
+    this.usuarios.put(player.getId().toString(), player);
   }
 
   public static GestorUsuarios obtenerGestor(){

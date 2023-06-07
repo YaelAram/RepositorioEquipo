@@ -8,7 +8,7 @@ h1, h2{
 }
 
 /* NavBar Styles */
-h1, label, input, .navbar-li{
+h1, label, input, .navbar-li, .user-name{
   line-height: 1.5;
   word-spacing: 1px;
   letter-spacing: 1px;
@@ -20,6 +20,8 @@ h1, label, input, .navbar-li{
 }
 
 nav{
+  display: grid;
+  grid-template-columns: 1fr 4fr;
   background-color: black;
   padding: 1.2rem 1.5rem;
 }
@@ -29,17 +31,26 @@ nav{
   margin-block: 0;
   text-align: end;
   padding-inline-start: 0;
+  text-align: right;
 }
 
 .navbar-li{
   display: inline;
   list-style: none;
   margin-left: 1.5rem;
+  cursor: pointer;
 }
 
-a{
+a, .navbar-li, .user-name{
   text-decoration: none;
   color: cornsilk;
+}
+
+.user-name{
+  margin-block: 0;
+  font-size: large;
+  text-align: start;
+  font-weight: bolder;
 }
 
 /* Page Style */

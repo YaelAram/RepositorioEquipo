@@ -1,39 +1,15 @@
-import { useRef } from 'react';
 import PropTypes from 'prop-types';
 
-import Swal from 'sweetalert2';
-
-const url = 'http://localhost:8081/api/dioses/';
+import { useUpdateGod } from '../hooks';
 
 export function UpdateForm( { id, nombre, epiteto, panteon, rol } ) {
-  const nombreCampo = useRef();
-  const epitetoCampo = useRef();
-  const panteonCampo = useRef();
-  const rolCampo = useRef();
-
-  const handleSubmit = async ( evt ) => {
-    evt.preventDefault();
-
-    const god = {
-      nombre: nombreCampo.current.value,
-      epiteto: epitetoCampo.current.value,
-      panteon: panteonCampo.current.value,
-      rol: rolCampo.current.value,
-    };
-
-    const resp = await fetch( `${ url }${ id }`, { 
-      method: 'PATCH', 
-      headers:{'content-type': 'application/json'},
-      body: JSON.stringify( god )
-    } );
-    const data = await resp.json();
-
-    if( resp.ok ) {
-      Swal.fire( { title: '¡Exito!', text: `${ data.nombre } actualizado`, icon: 'success', confirmButtonText: 'Ok', confirmButtonColor: "#000" } );
-      navigate( '/', { replace: true } );
-    }
-    else Swal.fire( { title: 'Error', text: 'El dios no se actualizo', icon: 'error', confirmButtonText: 'Ok', confirmButtonColor: "#000" } );
-  };
+  const {
+    handleSubmit,
+    nombreCampo,
+    epitetoCampo,
+    panteonCampo,
+    rolCampo
+  } = useUpdateGod( id );
 
   return (
     <>

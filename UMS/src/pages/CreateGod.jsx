@@ -1,35 +1,7 @@
-import Swal from 'sweetalert2';
-
-import { useForm } from "../hooks/useForm";
-
-const url = 'http://localhost:8081/api/dioses/';
-const formData = {
-  img: '',
-  nombre: '',
-  epiteto: '',
-  panteon: '',
-  rol: ''
-};
+import { useCreateGod } from "../hooks";
 
 export function CreateGod() {
-  const { form, img, nombre, epiteto, panteon, rol, onInputChange, onReset } = useForm( formData );
-
-  const handleSubmit = async ( evt ) => {
-    evt.preventDefault();
-
-    const resp = await fetch( url, { 
-      method: 'POST', 
-      headers:{'content-type': 'application/json'},
-      body: JSON.stringify(form)
-    }  );
-    const { id } = await resp.json();
-
-    if( id ) {
-      Swal.fire( { title: '¡Exito!', text: 'Dios creado', icon: 'success', confirmButtonText: 'Ok', confirmButtonColor: "#000" } );
-      onReset();
-    }
-    else Swal.fire( { title: 'Error', text: 'El dios no fue creado', icon: 'error', confirmButtonText: 'Ok', confirmButtonColor: "#000" } );
-  };
+  const { handleSubmit, img, nombre, epiteto, panteon, rol, onInputChange } = useCreateGod();
 
   return (
     <section className="section-create">

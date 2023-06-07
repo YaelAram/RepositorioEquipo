@@ -15,27 +15,27 @@ public class UsuariosController {
   private final GestorUsuarios gestorUsuarios = GestorUsuarios.obtenerGestor();
 
   @GetMapping("/")
-  @CrossOrigin(origins = "https://smite-dioses-api.netlify.app/")
+  @CrossOrigin("*")
   public ResponseEntity<ArrayList<UsuarioSeguro>> obtenerUsuarios(){
     return new ResponseEntity<>(gestorUsuarios.obtenerUsuarios(), HttpStatus.OK);
   }
 
   @PostMapping("/")
-  @CrossOrigin(origins = "https://smite-dioses-api.netlify.app/")
+  @CrossOrigin("*")
   public ResponseEntity<UsuarioSeguro> crearUsuario(@RequestBody() Usuario nuevoUsuario){
     UsuarioSeguro usuario = gestorUsuarios.crearUsuario(nuevoUsuario);
     return new ResponseEntity<>(usuario, (usuario.getId() == null) ? HttpStatus.BAD_REQUEST : HttpStatus.CREATED);
   }
 
   @PostMapping("/auth")
-  @CrossOrigin(origins = "https://smite-dioses-api.netlify.app/")
+  @CrossOrigin("*")
   public ResponseEntity<UsuarioSeguro> logIn(@RequestBody() Usuario usuarioDesconocido){
     UsuarioSeguro usuario = this.gestorUsuarios.autenticar(usuarioDesconocido);
     return new ResponseEntity<>(usuario, (usuario.getId() == null) ? HttpStatus.BAD_REQUEST : HttpStatus.OK);
   }
 
   @PatchMapping("/{id}")
-  @CrossOrigin(origins = "https://smite-dioses-api.netlify.app/")
+  @CrossOrigin("*")
   public ResponseEntity<UsuarioSeguro> cambiarRol(
           @PathVariable(name = "id") String id,
           @RequestBody() Usuario usuarioActualizado,
@@ -47,7 +47,7 @@ public class UsuariosController {
   }
 
   @DeleteMapping("/{id}")
-  @CrossOrigin(origins = "https://smite-dioses-api.netlify.app/")
+  @CrossOrigin("*")
   public ResponseEntity<UsuarioSeguro> eliminarUsuario(
           @PathVariable(name = "id") String id,
           @RequestHeader("token") String token

@@ -16,20 +16,20 @@ public class DiosesController {
     private final Roster roster = new Roster();
 
     @GetMapping("/")
-    @CrossOrigin(origins = "https://smite-dioses-api.netlify.app/")
+    @CrossOrigin("*")
     public ResponseEntity<ArrayList<Dios>> getDioses() {
         return new ResponseEntity<>(this.roster.obtenerDioses(), HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
-    @CrossOrigin(origins = "https://smite-dioses-api.netlify.app/")
+    @CrossOrigin("*")
     public ResponseEntity<Dios> getDiosByID(@PathVariable(name = "id") String id) {
         Dios dios = this.roster.obtenerDiosPorId(id);
         return new ResponseEntity<>(this.roster.obtenerDiosPorId(id), (dios.getId() == null) ? HttpStatus.BAD_REQUEST : HttpStatus.OK);
     }
 
     @PostMapping("/")
-    @CrossOrigin(origins = "https://smite-dioses-api.netlify.app/")
+    @CrossOrigin("*")
     public ResponseEntity<Dios> agregarDios(
             @RequestBody() Dios diosNuevo,
             @RequestHeader("token") String token
@@ -40,7 +40,7 @@ public class DiosesController {
     }
 
     @PatchMapping("/{id}")
-    @CrossOrigin(origins = "https://smite-dioses-api.netlify.app/")
+    @CrossOrigin("*")
     public ResponseEntity<Dios> modificarDios(
             @PathVariable(name = "id") String id,
             @RequestBody() Dios diosActualizado,
@@ -52,7 +52,7 @@ public class DiosesController {
     }
 
     @DeleteMapping("/{id}")
-    @CrossOrigin(origins = "https://smite-dioses-api.netlify.app/")
+    @CrossOrigin("*")
     public ResponseEntity<Dios> eliminarDios(
             @PathVariable(name = "id") String id,
             @RequestHeader("token") String token

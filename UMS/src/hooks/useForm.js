@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo, useRef } from 'react';
 
 export const useForm = ( initialState = {}, formValidators = {} ) => {
     const [ form, setForm ] = useState( initialState );
