@@ -7,3 +7,5 @@ export * from './NavBar';
 export * from './PlayerOptions';
 export * from './ReadOnlyGod';
 export * from './UpdateForm';
+export * from './UserItem';
+export * from './UserList';

@@ -16,8 +16,9 @@ public class UsuariosController {
 
   @GetMapping("/")
   @CrossOrigin("*")
-  public ResponseEntity<ArrayList<UsuarioSeguro>> obtenerUsuarios(){
-    return new ResponseEntity<>(gestorUsuarios.obtenerUsuarios(), HttpStatus.OK);
+  public ResponseEntity<ArrayList<UsuarioSeguro>> obtenerUsuarios(@RequestHeader("token") String token){
+    if(!this.gestorUsuarios.validarRol(token)) return new ResponseEntity<>(new ArrayList<>(), HttpStatus.UNAUTHORIZED);
+    return new ResponseEntity<>(gestorUsuarios.obtenerUsuarios(token), HttpStatus.OK);
   }
 
   @PostMapping("/")

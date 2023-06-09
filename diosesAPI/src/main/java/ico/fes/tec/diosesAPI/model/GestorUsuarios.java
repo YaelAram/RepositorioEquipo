@@ -21,8 +21,32 @@ public class GestorUsuarios {
             "123456",
             Rol.PLAYER
     );
+    Usuario yael = new Usuario(
+            UUID.fromString("a58e95f2-ab43-4c21-a3c6-43b3b37f5117"),
+            "Yael",
+            "yael@gmail.com",
+            "123456",
+            Rol.ADMIN
+    );
+    Usuario axel = new Usuario(
+            UUID.fromString("822f7f8b-2b0d-4e83-92d1-33df21acd44b"),
+            "Axel",
+            "axel@gmail.com",
+            "123456",
+            Rol.PLAYER
+    );
+    Usuario joshua = new Usuario(
+            UUID.fromString("4047e0c5-e2c0-472a-9c51-51b3c0ace8dd"),
+            "Joshua",
+            "joshua@gmail.com",
+            "123456",
+            Rol.ADMIN
+    );
     this.usuarios.put(admin.getId().toString(), admin);
     this.usuarios.put(player.getId().toString(), player);
+    this.usuarios.put(yael.getId().toString(), yael);
+    this.usuarios.put(axel.getId().toString(), axel);
+    this.usuarios.put(joshua.getId().toString(), joshua);
   }
 
   public static GestorUsuarios obtenerGestor(){
@@ -36,8 +60,12 @@ public class GestorUsuarios {
     return false;
   }
 
-  public ArrayList<UsuarioSeguro> obtenerUsuarios(){
-    return new ArrayList<>(this.usuarios.values().stream().map(Usuario::obtenerUsuarioSeguro).toList());
+  public ArrayList<UsuarioSeguro> obtenerUsuarios(String token){
+    return new ArrayList<>(this.usuarios.values()
+            .stream()
+            .map(Usuario::obtenerUsuarioSeguro)
+            .filter((usuario) -> !usuario.getId().toString().equals(token))
+            .toList());
   }
 
   public UsuarioSeguro crearUsuario(Usuario nuevoUsuario){

@@ -1,4 +1,4 @@
-const url = 'http://localhost:8081/api/dioses/';
+const url = 'http://localhost:8787/api/dioses/';
 
 export const createGod = async ( form, token ) => {
   const resp = await fetch( url, { 

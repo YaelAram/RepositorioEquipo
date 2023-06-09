@@ -6,3 +6,5 @@ export * from './useLogIn';
 export * from './useShowGods';
 export * from './useSignIn';
 export * from './useUpdateGod';
+export * from './useUserItem';
+export * from './useUserManager';

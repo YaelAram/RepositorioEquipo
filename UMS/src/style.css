@@ -54,10 +54,6 @@ a, .navbar-li, .user-name{
 }
 
 /* Page Style */
-section{
-  padding: 0.25rem 3rem 2rem;
-}
-
 .hero-list{
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -182,7 +178,7 @@ input[type=number]::-webkit-outer-spin-button {
   grid-template-columns: 1fr;
 }
 
-.input-create, .btn-create{
+.input-create, .btn-create, .section-user, .delete-user{
   border-radius: 0.3rem;
   outline: none;
   border: 0.125rem solid black;
@@ -205,4 +201,39 @@ input[type=number]::-webkit-outer-spin-button {
 .btn-create:hover{
   color: black;
   background-color: white;
+}
+
+/* UserList */
+.main-list{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.5rem;
+  padding: 0 8rem;
+}
+
+.section-user{
+  padding: 0.8rem 1rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 2fr 2fr;
+  gap: 0.8rem;
+}
+
+.info-user{
+  margin-block: 0;
+  text-align: center;
+  font-size: large;
+  padding-top: 0.3rem;
+}
+
+.delete-user{
+  background-color: white;
+  font-weight: bold;
+  padding: 0.3rem 0;
+  cursor: pointer;
+  color: black;
+}
+
+.delete-user:hover{
+  background-color: black;
+  color: white;
 }

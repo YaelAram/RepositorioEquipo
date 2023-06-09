@@ -8,6 +8,9 @@ export function AdminOptions() {
   return (
     <>
       <li className="navbar-li">
+        <NavLink to="/usuarios" className={ activeClass }>Usuarios</NavLink>
+      </li>
+      <li className="navbar-li">
         <NavLink to="/crear" className={ activeClass }>Crear Dios</NavLink>
       </li>
       <PlayerOptions />
