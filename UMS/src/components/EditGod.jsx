@@ -9,7 +9,9 @@ export function EditGod( { god } ) {
   return (
     <>
       <UpdateForm { ...god } />
-      <button className="hero-profile-delete btn-create" onClick={ handleDelete }>Eliminar Dios</button>
+      <button className="btn empty-btn rounded bordered god-profile-delete btn-create" onClick={ handleDelete }>
+        Eliminar
+      </button>
     </>
   );
 };

@@ -4,7 +4,7 @@ import { UserItem } from "./UserItem";
 
 export function UserList( { users, deleteUserUI, updateUserUI } ) {
   return (
-    <main className="main-list">
+    <main className="grid user-list">
       { users.map( ( user ) => 
         <UserItem key={ user?.id } { ...user } deleteUserUI={ deleteUserUI } updateUserUI={ updateUserUI } /> ) 
       }

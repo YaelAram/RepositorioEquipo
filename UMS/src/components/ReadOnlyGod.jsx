@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 export function ReadOnlyGod( { nombre, epiteto, panteon, rol } ) {
   return (
     <>
-      <p><span className="label-hero-info">Nombre: </span>{ nombre }</p>
-      <p><span className="label-hero-info">Epiteto: </span>{ epiteto }</p>
-      <p><span className="label-hero-info">Panteon: </span>{ panteon }</p>
-      <p><span className="label-hero-info">Rol: </span>{ rol }</p>
+      <p><span className="label-god-info">Nombre: </span>{ nombre }</p>
+      <p><span className="label-god-info">Epíteto: </span>{ epiteto }</p>
+      <p><span className="label-god-info">Panteón: </span>{ panteon }</p>
+      <p><span className="label-god-info">Rol: </span>{ rol }</p>
     </>
   );
 };

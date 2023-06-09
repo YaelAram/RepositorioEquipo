@@ -3,7 +3,7 @@ import { GodItem } from './GodItem';
 
 export function GodList( { gods } ) {
   return (
-    <main className="hero-list">
+    <main className="grid god-list">
       { gods.map( ( god ) => <GodItem key={ god.id } { ...god } /> ) }
     </main>
   );

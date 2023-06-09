@@ -1,29 +1,45 @@
+/* General Styles */
 body{
   font-family: 'Roboto', sans-serif;
 }
 
-h1, h2{
+h1, h2, h3{
   text-align: center;
-  margin-block: 1rem;
 }
 
-/* NavBar Styles */
 h1, label, input, .navbar-li, .user-name{
   line-height: 1.5;
   word-spacing: 1px;
   letter-spacing: 1px;
 }
 
+.grid{
+  display: grid;
+  gap: 0.5rem;
+}
+
+.bordered{
+  border: 0.125rem solid black;
+}
+
+.rounded{
+  border-radius: 0.5rem;
+}
+
+.shadow{
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+/* NavBar Styles */
 .active{
-  color: white;
   font-weight: bold;
 }
 
 nav{
-  display: grid;
   grid-template-columns: 1fr 4fr;
-  background-color: black;
-  padding: 1.2rem 1.5rem;
+  background-color: white;
+  padding: 1rem 1.5rem;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 }
 
 .navbar-ul{
@@ -37,13 +53,13 @@ nav{
 .navbar-li{
   display: inline;
   list-style: none;
-  margin-left: 1.5rem;
+  margin-left: 1rem;
   cursor: pointer;
 }
 
 a, .navbar-li, .user-name{
   text-decoration: none;
-  color: cornsilk;
+  color: black;
 }
 
 .user-name{
@@ -53,34 +69,25 @@ a, .navbar-li, .user-name{
   font-weight: bolder;
 }
 
-/* Page Style */
-.hero-list{
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 0.5rem;
+.nav-log-out{
+  border: 0.125rem solid black;
+  padding: 0.25rem 0.4rem;
 }
 
-.hero-item{
+/* Show Gods */
+.god-list{
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  padding: 0 3rem 2rem;
+}
+
+.god-item{
   padding: 0.25rem 1.5rem 1rem;
-  border-radius: 0.75rem;
-  border: 0.125rem solid black;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .image-info{
-  display: grid;
   grid-template-columns: 2fr 2fr;
-  gap: 0.25rem;
-}
-
-.image-info-profile{
-  margin-top: 3rem;
-  display: grid;
-  grid-template-columns: 2fr 2fr 2fr 2fr;
-  gap: 0.25rem;
-}
-
-.hero-profile-delete{
-  width: 100%;
 }
 
 img{
@@ -90,132 +97,136 @@ img{
   border-radius: 0.75rem;
 }
 
-.hero-img-profile{
-  grid-row: 1;
-  grid-column: 2;
-  width: 100%;
-  border-radius: 0.75rem;
-}
-
-.hero-info{
+.god-info{
   grid-row: 1;
   grid-column: 2;
   padding-left: 1.5rem;
 }
 
-.hero-info-profile{
-  grid-row: 1;
-  grid-column: 3;
-  padding-left: 1.5rem;
-  grid-template-columns: 1fr;
-  gap: 0.25rem;
-}
-
-.label-hero-info{
+.label-god-info{
   font-weight: bolder;
 }
 
-.about-hero-info{
+.about-god-info{
   font-weight: bold;
   color: black;
   font-style: italic;
+  text-decoration: underline;
 }
 
-.primary-button{
-  font-size: large;
-  padding: 0.5rem 3rem;
-  background-color: white;
-  color: black;
-  outline: none;
+/* God Profile */
+.image-info-profile{
+  margin-top: 3rem;
+  grid-template-columns: 2fr 2fr 2fr 2fr;
 }
 
-.goditem-more{
-  color: black;
-  font-weight: bold;
-  font-style: italic;
+.god-img-profile{
+  grid-row: 1;
+  grid-column: 2;
+  width: 100%;
 }
 
-.goditem-more:hover{
-  cursor: pointer;
+.god-info-profile{
+  grid-row: 1;
+  grid-column: 3;
+  padding: 1.5rem;
+  margin-left: 2rem;
 }
 
-.primary-button, .input-text{
-  border: 0.125rem solid black;
-  border-radius: 0.75rem;
+.god-profile-delete{
+  width: 100%;
 }
 
-.primary-button:hover{
-  background-color: black;
-  color: white;
-}
-
-/* Form */
-.section-create, .form-create{
-  display: grid;
-  gap: 0.5rem;
-}
-
-.section-create{
+/* Centered Form */
+.form-section{
   grid-template-columns: repeat(3, 1fr);
 }
 
-input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button { 
-  -webkit-appearance: none; 
-  margin: 0; 
-}
-
-.h1-create, .form-create{
-  grid-column: 2;
-}
-
-.h1-create{
-  grid-row: 1;
-}
-
-.form-create{
-  grid-row: 2;
+.form-update{
   grid-template-columns: 1fr;
 }
 
-.input-create, .btn-create, .section-user, .delete-user{
-  border-radius: 0.3rem;
-  outline: none;
-  border: 0.125rem solid black;
+.form-container{
+  grid-column: 2;
+  margin-top: 2rem;
+  padding: 2rem;
 }
 
-.input-create{
-  padding: 0.25rem 0.35rem;
+.form-title{
+  margin-block: 0;
 }
 
-.btn-create{
+.btn{
   margin-top: 1rem;
   padding: 0.5rem 0;
-  color: white;
-  background-color: black;
   font-size: larger;
   font-weight: bold;
   cursor: pointer;
+  outline: none;
 }
 
-.btn-create:hover{
+.filled-btn{
+  color: white;
+  background-color: black;
+}
+
+.filled-btn:hover{
   color: black;
   background-color: white;
 }
 
+.empty-btn{
+  color: black;
+  background-color: white;
+}
+
+.empty-btn:hover{
+  color: white;
+  background-color: black;
+}
+
+.label-field{
+  margin-top: 0.5rem;
+  font-weight: lighter;
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+.input-field{
+  padding: 0.3rem 0.6rem;
+  font-size: medium;
+}
+
+.input-field:focus{
+  font-weight: bold;
+}
+
+.form-message{
+  font-style: italic;
+  margin-block: 0;
+  margin-top: 2rem;
+}
+
+.form-link{
+  font-weight: bold;
+  cursor: pointer;
+  font-size: large;
+  text-decoration: underline;
+  margin-left: 0.2rem;
+}
+
 /* UserList */
-.main-list{
-  display: grid;
+.user-list{
   grid-template-columns: 1fr;
-  gap: 0.5rem;
+  gap: 1rem;
   padding: 0 8rem;
 }
 
 .section-user{
   padding: 0.8rem 1rem;
-  display: grid;
   grid-template-columns: 1fr 1fr 1fr 2fr 2fr;
   gap: 0.8rem;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .info-user{
@@ -225,15 +236,6 @@ input[type=number]::-webkit-outer-spin-button {
   padding-top: 0.3rem;
 }
 
-.delete-user{
-  background-color: white;
-  font-weight: bold;
-  padding: 0.3rem 0;
-  cursor: pointer;
-  color: black;
-}
-
-.delete-user:hover{
-  background-color: black;
-  color: white;
+.delete-user-btn{
+  margin-top: 0;
 }

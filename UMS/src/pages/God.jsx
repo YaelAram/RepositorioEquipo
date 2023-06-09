@@ -7,9 +7,9 @@ export function God() {
 
   return (
     <section>
-      <div className="image-info-profile">
-        <img src={ img } alt={ alt } className="hero-img-profile" />
-        <article className="hero-info-profile">
+      <div className="grid image-info-profile">
+        <img src={ img } alt={ alt } className="god-img-profile rounded shadow" />
+        <article className="god-info-profile shadow rounded">
           { ( !god?.id ) ? undefined : ( rol === 'ADMIN' ) ? <EditGod god={ god }/> : <ReadOnlyGod { ...god }/> }
         </article>
       </div>

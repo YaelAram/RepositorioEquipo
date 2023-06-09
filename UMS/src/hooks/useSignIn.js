@@ -28,11 +28,16 @@ export const useSignIn = () => {
     }
   };
 
+  const handleGoToLogIn = () => {
+    navigate( '/', { replace: true } );
+  };
+
   return {
     handleSubmit,
     nombre,
     email,
     password,
-    onInputChange
+    onInputChange,
+    handleGoToLogIn
   };
 };

@@ -13,16 +13,40 @@ export function UpdateForm( { id, nombre, epiteto, panteon, rol } ) {
 
   return (
     <>
-      <form className="form-create" onSubmit={ handleSubmit }>
-        <label htmlFor="dios-nombre">Nombre:</label>
-        <input type="text" name="nombreCampo" id="dios-nombre" className="input-create" placeholder={ nombre } ref={ nombreCampo } />
-        <label htmlFor="epiteto-nombre">Epiteto:</label>
-        <input type="text" name="epitetoCampo" id="epiteto-nombre" className="input-create" placeholder={ epiteto } ref={ epitetoCampo } />
-        <label htmlFor="panteon-nombre">Panteon:</label>
-        <input type="text" name="panteonCampo" id="panteon-nombre" className="input-create" placeholder={ panteon } ref={ panteonCampo } />
-        <label htmlFor="rol-nombre">Rol:</label>
-        <input type="text" name="rolCampo" id="rol-nombre" className="input-create" placeholder={ rol } ref={ rolCampo } />
-        <input className="hero-profile-delete btn-create" type="submit" value="Actualizar Dios" />
+      <form className="grid form-update" onSubmit={ handleSubmit }>
+        <label htmlFor="dios-nombre" className='label-field'>Nombre:</label>
+        <input 
+          type="text" 
+          name="nombreCampo" 
+          id="dios-nombre" 
+          className="input-field rounded bordered" 
+          placeholder={ nombre } 
+          ref={ nombreCampo } />
+        <label htmlFor="epiteto-nombre" className='label-field'>Epíteto:</label>
+        <input 
+          type="text" 
+          name="epitetoCampo" 
+          id="epiteto-nombre" 
+          className="input-field rounded bordered" 
+          placeholder={ epiteto } 
+          ref={ epitetoCampo } />
+        <label htmlFor="panteon-nombre" className='label-field'>Panteón:</label>
+        <input 
+          type="text" 
+          name="panteonCampo" 
+          id="panteon-nombre" 
+          className="input-field rounded bordered" 
+          placeholder={ panteon } 
+          ref={ panteonCampo } />
+        <label htmlFor="rol-nombre" className='label-field'>Rol:</label>
+        <input 
+          type="text" 
+          name="rolCampo" 
+          id="rol-nombre" 
+          className="input-field rounded bordered" 
+          placeholder={ rol } 
+          ref={ rolCampo } />
+        <button type='submit' className='btn filled-btn rounded bordered'>Actualizar</button>
       </form>
     </>
   );

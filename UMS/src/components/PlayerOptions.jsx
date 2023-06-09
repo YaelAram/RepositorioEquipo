@@ -14,8 +14,8 @@ export function PlayerOptions() {
       <li className="navbar-li">
         <NavLink to="/" className={ activeClass }>Ver Dioses</NavLink>
       </li>
-      <li className="navbar-li" onClick={ logOutUser }>
-        Cerrar Sesion
+      <li className="navbar-li nav-log-out rounded" onClick={ logOutUser }>
+        Cerrar Sesión
       </li>
     </>
   );

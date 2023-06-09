@@ -11,23 +11,28 @@ export function AppRouter() {
 
   return (
     <>
-      <NavBar />
       {
         ( isLogged ) ? (
           ( rol === 'ADMIN' ) ? (
-            <Routes>
-              <Route path="/" element={ <ShowGods /> }/>
-              <Route path="/crear" element={ <CreateGod /> }/>
-              <Route path="/usuarios" element={ <UserManager /> }/>
-              <Route path="/:id" element={ <God /> }/>
-              <Route path="/*" element={ <Navigate to="/" /> }/>
-            </Routes>
+            <>
+              <NavBar />
+              <Routes>
+                <Route path="/" element={ <ShowGods /> }/>
+                <Route path="/crear" element={ <CreateGod /> }/>
+                <Route path="/usuarios" element={ <UserManager /> }/>
+                <Route path="/:id" element={ <God /> }/>
+                <Route path="/*" element={ <Navigate to="/" /> }/>
+              </Routes>
+            </>
           ) : (
-            <Routes>
-              <Route path="/" element={ <ShowGods /> }/>
-              <Route path="/:id" element={ <God /> }/>
-              <Route path="/*" element={ <Navigate to="/" /> }/>
-            </Routes>
+            <>
+              <NavBar />
+              <Routes>
+                <Route path="/" element={ <ShowGods /> }/>
+                <Route path="/:id" element={ <God /> }/>
+                <Route path="/*" element={ <Navigate to="/" /> }/>
+              </Routes>
+            </>
           )
         ) : (
           <Routes>

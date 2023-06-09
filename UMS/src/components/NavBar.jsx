@@ -9,7 +9,7 @@ export function NavBar() {
   const { user, rol, isLogged } = useContext( UserContext );
 
   return (
-    <nav>
+    <nav className="grid">
       <p className="user-name">{ user.nombre?.toUpperCase() }</p>
       <ul className="navbar-ul">
         {

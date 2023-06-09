@@ -6,6 +6,7 @@ import { useForm } from "./useForm";
 
 import { logIn } from "../provider";
 import { errorAlert } from "../alerts";
+import { useNavigate } from "react-router-dom";
 
 const formData = {
   email: '',
@@ -14,8 +15,8 @@ const formData = {
 
 export const useLogIn = () => {
   const { form, email, password, onInputChange, onReset } = useForm( formData );
-
   const { logInUser } = useContext( UserContext );
+  const navigate = useNavigate();
 
   const handleSubmit = async ( evt ) => {
     evt.preventDefault();
@@ -30,10 +31,15 @@ export const useLogIn = () => {
     }
   };
 
+  const handleGoToSignIn = () => {
+    navigate( '/registro', { replace: true } );
+  };
+
   return {
     email,
     password,
     onInputChange,
-    handleSubmit
+    handleSubmit,
+    handleGoToSignIn
   };
 };
