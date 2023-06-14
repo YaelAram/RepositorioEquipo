@@ -14,7 +14,9 @@ export function UserItem( { id, nombre, email, rol, deleteUserUI, updateUserUI }
         <option value="ADMIN">Administrador</option>
         <option value="PLAYER">Jugador</option>
       </select>
-      <button type="button" className="btn empty-btn rounded bordered delete-user-btn" onClick={ handleDelete }>Borrar</button>
+      <button type="button" className="btn empty-btn rounded bordered delete-user-btn" onClick={ handleDelete }>
+        Borrar
+      </button>
     </section>
   );
 };

@@ -13,7 +13,11 @@ export function NavBar() {
       <p className="user-name">{ user.nombre?.toUpperCase() }</p>
       <ul className="navbar-ul">
         {
-          ( !isLogged ) ? <GuestOptions /> : ( ( rol === 'ADMIN' ) ? <AdminOptions /> : <PlayerOptions /> )
+          ( !isLogged ) ? 
+            <GuestOptions /> : 
+            ( ( rol === 'ADMIN' ) ? 
+              <AdminOptions /> : 
+              <PlayerOptions /> )
         }
       </ul>
     </nav>
